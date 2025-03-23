@@ -674,7 +674,7 @@ local c7 = {
         Id = 33,
         OrderId = 15
     }
-}
+} -- World Map
 local c8 = {1, 3, 2, 4, 6, 11, 12, 13, 7, 14, 15, 16, 20, 19, 18, 24, 35, 21, 25, 36, 23, 26, 37, 27, 30, 31, 29, 32,
             33, 34, 41, 42, 43, 39, 1005, 1006, 1007, 38}
 local c9 = {{
@@ -920,7 +920,7 @@ local c9 = {{
     Type = 'Raid',
     Special = true,
     Code = 'Event Raid'
-}}
+}}  -- Raid Map Dungeons
 local ca = {
     Assassin = {
         DisplayName = 'Shadowblade',
@@ -1411,7 +1411,7 @@ local ca = {
     },
     Demon = {
         DisplayName = 'Demon',
-        Range = 12,
+        Range = 912,
         Type = 'Ranged',
         Primary = 'Scythe',
         Skills = {{
@@ -2571,7 +2571,7 @@ local ca = {
             Cooldown = 0.5
         }}
     }
-}
+} -- Class and Skillsets
 local cb = Instance.new('Folder')
 cb.Name = 'SummonFolder'
 cb.Parent = Workspace;
@@ -5584,7 +5584,7 @@ Toggles.Killaura:OnChanged(function(cU)
             end
             task.wait()
         end
-    end)
+    end) -- Killaura
     if ao and not aj:FindFirstChild(36) and ao then
         task.spawn(function()
             while Toggles.Killaura.Value do
