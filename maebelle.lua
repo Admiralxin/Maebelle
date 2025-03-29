@@ -5691,6 +5691,7 @@ Toggles.Killaura:OnChanged(function(cU)
                         if not Toggles.NVD.Value then
                             Toggles.NVD:SetValue(true)
                         end
+                        -- Loop all Potential Enemies
                         for ds, C in pairs(b9:GetChildren()) do
                             if isAlive(C) then
                                 if not (C.Name == p.ignoreMob) then
@@ -5699,6 +5700,7 @@ Toggles.Killaura:OnChanged(function(cU)
                                         gq:FireServer(table.create(3, C))
                                     end
                                 end
+
                                 if C.Name == p.ignoreMob and b3 and b3 == 1 then
                                     if p.mobWaitTime and not ek then
                                         task.wait(p.mobWaitTime)
@@ -5759,17 +5761,18 @@ Toggles.Killaura:OnChanged(function(cU)
                     local gw = Options.bossWepId.Value and #Options.bossWepId.Value > 2 and Options.bossWepId.Value;
                     if gv and not a1 and gu ~= gv then
                         equipWepWithId(gv, ' Mobs!')
-                        task.wait(0.5)
+                        task.wait(1)
                     end
                     if gw and a1 and gu ~= gw then
                         equipWepWithId(gw, ' Bosses!')
-                        task.wait(0.5)
+                        task.wait(1)
                     end
                 end
             end
             task.wait()
         end
     end)
+    -- Kill Aura Pure
     task.spawn(function()
         while Toggles.Killaura.Value and ao do
             X, Y, Z, _, a0, a1, a2 = getClosestMob(bV)
@@ -5785,6 +5788,7 @@ Toggles.Killaura:OnChanged(function(cU)
                     end
                     if tick() - (gx.LastUsed or 0) >= gB then
                         if gy ~= 'Heal' and ge <= gA and a2.Value > 0 then
+                            task.wait(math.random(0.1, 0.3))
                             if gy == 'Melee' then
                                 b8:FireServer(gz, aG.Position, (gD - aG.Position).Unit)
                             elseif gy == 'Ranged' then
@@ -5803,7 +5807,8 @@ Toggles.Killaura:OnChanged(function(cU)
                             gx.LastUsed = tick()
                             a5 = tick()
                         end
-                        if gy == 'Heal' and aH.Health.Value / aH.MaxHealth.Value < 0.6 then
+                        if gy == 'Heal' and aH.Health.Value / aH.MaxHealth.Value < math.random(0.5,0.65) then
+                            task.wait(math.random(0.5, 1.5))
                             if gx.Args then
                                 gz:FireServer(gx.Args)
                             else
@@ -5814,7 +5819,7 @@ Toggles.Killaura:OnChanged(function(cU)
                     end
                 end
             end
-            task.wait()
+            task.wait(math.random(0.2, 0.4))
         end
     end)
 
@@ -5843,7 +5848,7 @@ Toggles.Killaura:OnChanged(function(cU)
                         _ and _ <= 95 then
                         b2.Demon.BloodBinding:FireServer()
                         a5 = tick()
-                        task.wait(1)
+                        task.wait(2)
                     end
                 end
                 task.wait()
